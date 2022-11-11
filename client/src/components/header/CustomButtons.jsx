@@ -4,7 +4,6 @@ import { Box, Button, Typography } from '@mui/material';
 //icon imports
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import styled from '@emotion/styled';
-import { shadows } from '@mui/system';
 
 // custom Mui styles
 const Wrapper = styled(Box)({

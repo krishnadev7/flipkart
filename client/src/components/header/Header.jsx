@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { Box, height } from '@mui/system';
 
 // components imports
-import Search from '../Search';
+import Search from './Search';
 import CustomButtons from './CustomButtons';
 
 // mui custom css styles

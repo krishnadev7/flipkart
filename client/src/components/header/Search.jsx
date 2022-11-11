@@ -13,7 +13,6 @@ const SearchContainer = styled(Box)({
     borderRadius: '2px',
     marginLeft: '10px',
     display: 'flex'
-
 })
 
 // custom mui styles
@@ -24,17 +23,18 @@ const InputSearchBase = styled(InputBase)({
 })
 
 const SearchIconWrapper = styled(SearchIcon)({
-    color: 'blue',
-    padding: '5px'
-})
+  color: '#2874f0',
+  padding: '5px',
+  display: 'flex',
+});
 
 export default function Search() {
   return (
     <SearchContainer>
       <InputSearchBase placeholder='Search for products, brands and more'/>
-      <Box>
-        <SearchIconWrapper/>
-      </Box>
+      <SearchIconWrapper>
+        <SearchIcon/>
+      </SearchIconWrapper>
     </SearchContainer>
   );
 }
