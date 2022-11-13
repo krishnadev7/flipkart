@@ -7,6 +7,8 @@ import React from 'react'
 // icon imports
 import SearchIcon from '@mui/icons-material/Search';
 
+// custom mui styles
+
 const SearchContainer = styled(Box)({
     backgroundColor: 'white',
     width: '38%',
@@ -14,8 +16,6 @@ const SearchContainer = styled(Box)({
     marginLeft: '10px',
     display: 'flex'
 })
-
-// custom mui styles
 const InputSearchBase = styled(InputBase)({
     width: '100%',
     paddingLeft: '10px',

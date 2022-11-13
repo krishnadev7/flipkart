@@ -1,3 +1,5 @@
+import {DataProvider} from './context/DataProvider';
+
 // mui imports
 import { Box } from '@mui/material';
 
@@ -7,12 +9,12 @@ import Home from './components/home/Home';
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <Box style={{marginTop: 56}}>
-        <Home/>
+    <DataProvider className='App'>
+      <Header />
+      <Box style={{ marginTop: 56 }}>
+        <Home />
       </Box>
-    </div>
+    </DataProvider>
   );
 }
 
