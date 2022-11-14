@@ -203,7 +203,7 @@ function LoginDialog({ open, setOpen }) {
               <LoginButton onClick={handleLogin}>Login</LoginButton>
               <Typography sx={{ textAlign: 'center' }}>OR</Typography>
               <RequestOTP>Request OTP</RequestOTP>
-              <CreateAccount onClick={() => toggleSignup()}>  
+              <CreateAccount onClick={() => toggleSignup()}>
                 New to Flipkart? Create an account
               </CreateAccount>
             </Wrapper>
