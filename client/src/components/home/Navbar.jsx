@@ -6,11 +6,15 @@ import { Box, Typography } from '@mui/material'
 import {navData} from '../../constants/data'
 
 // mui custom styles
-const Component = styled(Box)({
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: '55px 10px 0 10px',
-})
+const Component = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  margin: '55px 10px 0 10px',
+  overflow: 'hidden',
+  [theme.breakpoints.down('lg')]:{
+    margin: 0
+  }
+}));
 
 const Container = styled(Box)({
     padding: '12px 8px',
@@ -27,12 +31,16 @@ const Text = styled(Typography)({
 export default function Navbar() {
   return (
     <Component>
-        {navData.map((data,i) => (
-            <Container>
-            <img  src={data.url} key={i} alt='navbar product images' style={{width: 74}}/>
-            <Text>{data.text}</Text>
-            </Container>
-        ))}
+      {navData.map((data, i) => (
+        <Container key={i}>
+          <img
+            src={data.url}
+            alt='navbar product images'
+            style={{ width: 74 }}
+          />
+          <Text>{data.text}</Text>
+        </Container>
+      ))}
     </Component>
-  )
+  );
 }
