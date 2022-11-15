@@ -1,11 +1,21 @@
-import {DataProvider} from './context/DataProvider';
+//context imports
+import { DataProvider } from './context/DataProvider';
+
+// react-router-dom imports
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // mui imports
-import { Box, createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material';
+import {
+  Box,
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from '@mui/material';
 
 //components imports
 import Header from './components/header/Header';
 import Home from './components/home/Home';
+import DetailsView from './components/details/DetailsView';
 
 // for responsive mui
 let theme = createTheme();
@@ -15,10 +25,15 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <DataProvider className='App'>
-        <Header />
-        <Box style={{ marginTop: 56 }}>
-          <Home />
-        </Box>
+        <BrowserRouter>
+          <Header />
+          <Box style={{ marginTop: 56 }}>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/product/:id' element={<DetailsView />} />
+            </Routes>
+          </Box>
+        </BrowserRouter>
       </DataProvider>
     </ThemeProvider>
   );

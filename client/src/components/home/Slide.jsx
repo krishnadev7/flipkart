@@ -9,6 +9,9 @@ import Carousel from 'react-multi-carousel';
 import Countdown from 'react-countdown';
 import { Fragment } from 'react';
 
+// react-router-dom imports
+import { Link } from 'react-router-dom';
+
 // responsive breakPoint data for carousel
 const responsive = {
   desktop: {
@@ -111,16 +114,18 @@ export default function Slide({ products, title, timer }) {
         itemClass='carousel-item-padding-40-px'
       >
         {products.map((product, i) => (
-          <Box sx={{ padding: '10px 15px', textAlign: 'center' }} key={i}>
-            <Image src={product.url} />
-            <Text style={{ fontWeight: 600, color: '#212121' }}>
-              {product.title.shortTitle}
-            </Text>
-            <Text style={{ color: 'green' }}>{product.discount}</Text>
-            <Text style={{ color: '#212121', opacity: '.6' }}>
-              {product.tagline}
-            </Text>
-          </Box>
+          <Link to={`/product/${product.id}`} style={{textDecoration: 'none'}}>
+            <Box sx={{ padding: '10px 15px', textAlign: 'center' }} key={i}>
+              <Image src={product.url} />
+              <Text style={{ fontWeight: 600, color: '#212121' }}>
+                {product.title.shortTitle}
+              </Text>
+              <Text style={{ color: 'green' }}>{product.discount}</Text>
+              <Text style={{ color: '#212121', opacity: '.6' }}>
+                {product.tagline}
+              </Text>
+            </Box>
+          </Link>
         ))}
       </Carousel>
     </Component>

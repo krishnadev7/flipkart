@@ -1,5 +1,5 @@
 // Mui imports
-import {AppBar, Toolbar} from '@mui/material';
+import { AppBar, Toolbar } from '@mui/material';
 import styled from '@emotion/styled';
 import { Box, height } from '@mui/system';
 
@@ -7,37 +7,44 @@ import { Box, height } from '@mui/system';
 import Search from './Search';
 import CustomButtons from './CustomButtons';
 
+// react-router-dom imports
+import { Link } from 'react-router-dom';
+
 // mui custom css styles
 const StyledHeader = styled(AppBar)({
-    backgroundColor: '#2874f0',
-    height: '56px',
-})
+  backgroundColor: '#2874f0',
+  height: '56px',
+});
 
 const Component = styled(Box)({
-    margin: '12%',
-    marginRight: '0px'
-})
+  margin: '12%',
+  marginRight: '0px',
+  color: 'inherit',
+  textDecoration: 'none',
+});
 
 const CustomButtonWrapper = styled(Box)({
-    margin: '0 5% 0 auto',
-})
+  margin: '0 5% 0 auto',
+});
 
 export default function Header() {
-    const logoUrl =
-      'https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fk-plus_3b0baa.png';
+  const logoUrl =
+    'https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fk-plus_3b0baa.png';
   return (
     <div>
-        <StyledHeader>
-            <Toolbar style={{ minHeight: 56 }}>
-                <Component>
-                    <img src={logoUrl} alt="flipkart logo" style={{width: 75}}/>
-                </Component>
-                <Search/>
-                <CustomButtonWrapper>
-                    <CustomButtons/>
-                </CustomButtonWrapper>
-            </Toolbar>
-        </StyledHeader>
+      <StyledHeader>
+        <Toolbar style={{ minHeight: 56 }}>
+          <Link to='/'>
+            <Component>
+              <img src={logoUrl} alt='flipkart logo' style={{ width: 75 }} />
+            </Component>
+          </Link>
+          <Search />
+          <CustomButtonWrapper>
+            <CustomButtons />
+          </CustomButtonWrapper>
+        </Toolbar>
+      </StyledHeader>
     </div>
-  )
+  );
 }
