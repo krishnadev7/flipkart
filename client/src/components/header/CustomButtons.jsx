@@ -15,15 +15,18 @@ import { useContext } from 'react';
 import { DataContext } from '../../context/DataProvider';
 
 //--------custom Mui styles--------//
-const Wrapper = styled(Box)({
+const Wrapper = styled(Box)(({ theme }) => ({
   display: 'flex',
   margin: '0, 3%, 0, auto',
-  '& > button, & > p, & div': {
+  '& > *': {
     marginRight: '40px',
     fontSize: '16px',
     alignItems: 'center',
   },
-});
+  [theme.breakpoints.down('md')]:{
+    display: 'block',
+  }
+}));
 
 const Container = styled(Box)({
   display: 'flex',
@@ -75,4 +78,4 @@ export default function CustomButtons() {
     </Wrapper>
   );
 }
- // login dialog component from mui. passing open & setOpen state to it
+ // line 74: login dialog component from mui. passing open & setOpen state to it

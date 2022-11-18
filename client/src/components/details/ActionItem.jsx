@@ -4,20 +4,32 @@ import { ShoppingCart as Cart, FlashOn as Flash } from '@mui/icons-material';
 import { padding } from '@mui/system';
 
 //--------MUI custom styles--------------//
-const LeftContainer = styled(Box)`
- padding: 40px 0 0 80px;
-`;
+const LeftContainer = styled(Box)(({theme}) => ({
+padding: '40px 0 0 80px',
+[theme.breakpoints.down('lg')]:{
+  padding: '20px 40px'
+}
+}))
+ 
+
 
 const Image = styled('img')({
     width: '90%',
     padding: '15px'
 })
 
-const StyledButton = styled(Button)`
- width: 48%;
- height: 50px;
- border-radius: 2px;
-`;
+const StyledButton = styled(Button)(({theme}) => ({
+ width: '48%',
+ height: '50px',
+ bordeRadius: '2px',
+ [theme.breakpoints.down('lg')]:{
+  width: '46%'
+ },
+ [theme.breakpoints.down('md')]:{
+  width: '48%'
+ }
+}))
+
 
 //----xxxxxx----MUI custom styles-------xxxxxxx-------//
 
