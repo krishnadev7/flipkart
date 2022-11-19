@@ -17,15 +17,14 @@ import { DataContext } from '../../context/DataProvider';
 //--------custom Mui styles--------//
 const Wrapper = styled(Box)(({ theme }) => ({
   display: 'flex',
-  margin: '0, 3%, 0, auto',
   '& > *': {
-    marginRight: '40px',
+    marginRight: '40px !important',
     fontSize: '16px',
     alignItems: 'center',
   },
-  [theme.breakpoints.down('md')]:{
+  [theme.breakpoints.down('md')]: {
     display: 'block',
-  }
+  },
 }));
 
 const Container = styled(Box)({
@@ -47,10 +46,9 @@ const LoginButton = styled(Button)({
 });
 //--------muistyles-----------//
 
-
 export default function CustomButtons() {
   const [open, setOpen] = useState(false);
-  const { account,setAccount } = useContext(DataContext); // context states
+  const { account, setAccount } = useContext(DataContext); // context states
 
   const OpenDialog = () => {
     setOpen(true);
@@ -74,8 +72,16 @@ export default function CustomButtons() {
         <ShoppingCartIcon />
         <Typography>Cart</Typography>
       </Container>
-      <LoginDialog open={open} setOpen={setOpen} />    
+      <LoginDialog open={open} setOpen={setOpen} />
     </Wrapper>
   );
 }
- // line 74: login dialog component from mui. passing open & setOpen state to it
+// line 74: login dialog component from mui. passing open & setOpen state to it
+
+// backup css style
+
+// '& > *': {
+//     marginRight: '40px',
+//     fontSize: '16px',
+//     alignItems: 'center',
+//   },
