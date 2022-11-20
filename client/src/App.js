@@ -16,6 +16,7 @@ import {
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import DetailsView from './components/details/DetailsView';
+import Cart from './components/cart/Cart';
 
 // for responsive mui
 let theme = createTheme();
@@ -31,6 +32,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/product/:id' element={<DetailsView />} />
+              <Route path='/cart' element={<Cart/>} />
             </Routes>
           </Box>
         </BrowserRouter>
