@@ -40,7 +40,10 @@ const StyledButton = styled(Button)({
     background: '#fb641b',
     width: '250px',
     height: '51px',
-    borderRadius: '2px'
+    borderRadius: '2px',
+    '&:hover' : {
+      background: '#fb641b'
+    }
 })
 
 const LeftContainer = styled(Grid)(({theme}) => ({
