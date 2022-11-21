@@ -8,6 +8,8 @@ import {addCart} from '../../redux/actions/cartAction'
 import { Box, Button, styled } from '@mui/material'
 import { ShoppingCart as Cart, FlashOn as Flash } from '@mui/icons-material';
 import { useState } from 'react';
+import { payUsingPaytm } from '../../service/api';
+import { post } from '../../utils/paytm';
 
 //--------MUI custom styles--------------//
 const LeftContainer = styled(Box)(({theme}) => ({
@@ -45,7 +47,20 @@ function ActionItem({product}) {
   const addItemToCart = () => {
     dispatch(addCart(id,quantity))
      navigate('/cart')
-  }
+
+    }
+
+    const buyNow = async () => {
+      let response = await payUsingPaytm({
+        amount: 500,
+        email: 'codeforinterview01@gmail.com',
+      });
+      var information = {
+        action: 'https://securegw-stage.paytm.in/order/process',
+        params: response,
+      };
+      post(information);
+    };
 
   return (
     <LeftContainer>
@@ -59,7 +74,7 @@ function ActionItem({product}) {
       >
         <Cart /> Add to Cart
       </StyledButton>
-      <StyledButton variant='contained' style={{ background: '#fb541b' }}>
+      <StyledButton variant='contained' style={{ background: '#fb541b' }} onClick={() => buyNow()}>
         <Flash /> Buy Now
       </StyledButton>
     </LeftContainer>

@@ -5,6 +5,8 @@ import { Box } from '@mui/system';
 
 //react-redux imports
 import { useSelector } from 'react-redux';
+import { payUsingPaytm } from '../../service/api';
+import { post } from '../../utils/paytm';
 
 //components imports
 import CartItem from './CartItem';
@@ -50,6 +52,17 @@ const LeftContainer = styled(Grid)(({theme}) => ({
 //----xxx-----MUI styles----xxx-------//
 
 function Cart() {
+      const buyNow = async () => {
+        let response = await payUsingPaytm({
+          amount: 500,
+          email: 'codeforinterview01@gmail.com',
+        });
+        var information = {
+          action: 'https://securegw-stage.paytm.in/order/process',
+          params: response,
+        };
+        post(information);
+      };
   const { cartItems } = useSelector(state => state.cart);
   return (
     <>
@@ -65,7 +78,7 @@ function Cart() {
                 ))
             }
             <ButtonWrapper>
-                <StyledButton>Place Order</StyledButton>
+                <StyledButton onClick={() => buyNow()}>Place Order</StyledButton>
             </ButtonWrapper>
           </LeftContainer>
           <Grid Item lg={3} md={3} sm={12} xs={12}>

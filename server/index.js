@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { DefaultData } from './default.js';
 import Route from './routes/Route.js'
+import { v4 as uuidv4 } from 'uuid';
 import cors from 'cors'
 
 dotenv.config();
@@ -29,3 +30,16 @@ app.listen(PORT,()=>{
 })
 
 // DefaultData();
+
+export let PaytmMerchantKey = process.env.PAYTM_MERCHANT_KEY;
+export let paytmParams = {};
+paytmParams['MID'] = process.env.PAYTM_MID;
+paytmParams['WEBSITE'] = process.env.PAYTM_WEBSITE;
+paytmParams['CHANNEL_ID'] = process.env.PAYTM_CHANNEL_ID;
+paytmParams['INDUSTRY_TYPE_ID'] = process.env.PAYTM_INDUSTRY_TYPE_ID;
+paytmParams['ORDER_ID'] = uuidv4();
+paytmParams['CUST_ID'] = process.env.PAYTM_CUST_ID,
+paytmParams['TXN_AMOUNT'] = '100',
+paytmParams['CALLBACK_URL'] = 'http://localhost:8000/callback'
+paytmParams['EMAIL'] = 'krish@gmail.com'
+paytmParams['MOBILE_NO'] = '1234567852'
